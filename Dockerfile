@@ -1,21 +1,20 @@
 FROM adoptopenjdk/openjdk11:latest AS builder
 
 RUN jlink \
-      --module-path /opt/java/jmods \
       --compress=2 \
       --add-modules java.base,java.logging,java.sql,java.desktop,java.naming,java.security.jgss,java.management,java.instrument,jdk.unsupported \
       --no-header-files \
       --no-man-pages \
-      --output /opt/jdk-mini && du -sh /opt/jdk-mini
+      --output /opt/jre
 
 FROM debian:9-slim
 
-COPY --from=builder /opt/jdk-mini /opt/jdk-mini
+COPY --from=builder /opt/jre /opt/jre
 
 
 # Set our java home and other useful envs
 
-ENV JAVA_HOME=/opt/jdk-mini
+ENV JAVA_HOME=/opt/jre
 
 ENV PATH="$PATH:$JAVA_HOME/bin"
 
