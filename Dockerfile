@@ -3,7 +3,7 @@ FROM adoptopenjdk/openjdk11:latest AS builder
 RUN jlink \
       --module-path /opt/java/jmods \
       --compress=2 \
-      --add-modules java.base,java.desktop,java.logging,java.naming,java.security.jgss,java.sql,java.management,java.instrument,jdk.unsupported \
+      --add-modules java.base,java.logging,java.sql,java.desktop,java.naming,java.security.jgss,java.management,java.instrument,jdk.unsupported \
       --no-header-files \
       --no-man-pages \
       --output /opt/jdk-mini && du -sh /opt/jdk-mini
