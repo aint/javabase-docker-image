@@ -1,4 +1,8 @@
-Modules explained:
+[![](https://images.microbadger.com/badges/image/aint/javabase.svg)](https://microbadger.com/images/aint/javabase)
+[![Docker Pulls](https://img.shields.io/docker/pulls/aint/javabase.svg)](https://hub.docker.com/r/aint/javabase)
+
+
+Includes the following  Java modules:
 
 - java.desktop - java.beans.IntrospectionException
 - java.naming - javax.naming.NamingException
