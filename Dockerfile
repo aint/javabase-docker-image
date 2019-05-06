@@ -2,7 +2,7 @@ FROM adoptopenjdk/openjdk11:latest AS builder
 
 RUN jlink \
       --compress=2 \
-      --add-modules java.base,java.logging,java.sql,java.desktop,java.naming,java.security.jgss,java.management,java.instrument,jdk.unsupported \
+      --add-modules java.base,java.logging,java.xml,java.sql,java.desktop,java.naming,java.security.jgss,java.management,java.instrument,jdk.unsupported \
       --no-header-files \
       --no-man-pages \
       --output /opt/jre
@@ -17,4 +17,3 @@ COPY --from=builder /opt/jre /opt/jre
 ENV JAVA_HOME=/opt/jre
 
 ENV PATH="$PATH:$JAVA_HOME/bin"
-
