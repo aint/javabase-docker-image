@@ -1,5 +1,7 @@
 FROM adoptopenjdk/openjdk11:latest AS builder
 
+LABEL maintainer="olexandr.tyshkovets@gmail.com"
+
 RUN jlink \
       --compress=2 \
       --add-modules java.base,java.logging,java.xml,java.sql,java.desktop,java.naming,java.security.jgss,java.management,java.instrument,jdk.unsupported \
