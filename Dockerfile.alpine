@@ -1,0 +1,30 @@
+FROM adoptopenjdk/openjdk11:alpine AS builder
+
+LABEL maintainer="olexandr.tyshkovets@gmail.com"
+
+RUN jlink \
+      --compress=2 \
+      --add-modules java.base,java.logging,java.xml,java.sql,java.desktop,java.naming,java.security.jgss,java.management,java.instrument,jdk.unsupported \
+      --no-header-files \
+      --no-man-pages \
+      --strip-debug \
+      --output /target/opt/jre
+
+RUN mkdir -p /target/usr/glibc-compat/lib; \
+    cp /usr/glibc-compat/lib/libz* /target/usr/glibc-compat/lib
+
+
+
+FROM frolvlad/alpine-glibc
+
+COPY --from=builder /target /
+
+RUN /usr/glibc-compat/sbin/ldconfig
+
+
+# Set our java home and other useful envs
+
+ENV JAVA_HOME=/opt/jre
+
+ENV PATH="$PATH:$JAVA_HOME/bin"
+
