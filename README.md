@@ -1,5 +1,10 @@
-[![](https://images.microbadger.com/badges/image/aint/javabase.svg)](https://microbadger.com/images/aint/javabase)
 [![Docker Pulls](https://img.shields.io/docker/pulls/aint/javabase.svg)](https://hub.docker.com/r/aint/javabase)
+
+[![](https://images.microbadger.com/badges/image/aint/javabase:alpine.svg)](https://microbadger.com/images/aint/javabase:alpine)
+Alpine based image
+
+[![](https://images.microbadger.com/badges/image/aint/javabase.svg)](https://microbadger.com/images/aint/javabase)
+Debian based image
 
 
 Includes the following  Java modules:
