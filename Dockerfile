@@ -14,9 +14,6 @@ FROM debian:9-slim
 
 COPY --from=builder /opt/jre /opt/jre
 
-
-# Set our java home and other useful envs
-
 ENV JAVA_HOME=/opt/jre
 
 ENV PATH="$PATH:$JAVA_HOME/bin"

@@ -21,10 +21,6 @@ COPY --from=builder /target /
 
 RUN /usr/glibc-compat/sbin/ldconfig
 
-
-# Set our java home and other useful envs
-
 ENV JAVA_HOME=/opt/jre
 
 ENV PATH="$PATH:$JAVA_HOME/bin"
-
